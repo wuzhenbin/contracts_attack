@@ -16,9 +16,9 @@ const increaseTime = async (increaseTime) => {
     await network.provider.send("evm_mine")
 }
 
-const deployContracts = async (contractName, args = []) => {
+const deployContracts = async (contractName, args = [], data = {}) => {
     const contratcFactory = await ethers.getContractFactory(contractName)
-    contract = await contratcFactory.deploy(...args)
+    contract = await contratcFactory.deploy(...args, data)
     return contract
 }
 
